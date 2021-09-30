@@ -1,12 +1,20 @@
 const User=require('../models/user');
 module.exports.signIn=function(req,res)
 {
+    if(req.isAuthenticated())
+    {
+        return res.redirect('/');
+    }
     return res.render('user_sign_in',{
         title:'Placement Cell | Sign In'
     });
 }
 module.exports.signUp=function(req,res)
 {
+    if(req.isAuthenticated())
+    {
+        return res.redirect('/');
+    }
     return res.render('user_sign_up',{
         title:'Placement Cell | Sign Up'
     });

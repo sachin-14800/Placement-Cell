@@ -1,0 +1,85 @@
+#layout-header {
+    position: relative;
+    top: -1%;
+    left: -0.5%;
+    border: 3px solid blueviolet;
+    border-radius: 2%;
+    width: 100.5%;
+    height: 10%;
+  }
+  
+  nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav ul {
+    display: flex;
+    position: relative;
+    right: 10%;
+    justify-content: space-between;
+  }
+  
+  nav ul .list {
+    display: block;
+    position: relative;
+    padding-right: 20px;
+  }
+  
+  nav ul .list a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: blueviolet;
+  }
+  
+  nav ul #user-class {
+    position: relative;
+    font-size: 1.5rem;
+    color: #8a2be2;
+    cursor: pointer;
+  }
+  
+  nav ul #user-class #hide {
+    background-color: cornsilk;
+    border-radius: 0.5rem;
+    position: relative;
+    top: 2%;
+    left: -20%;
+    height: auto;
+    width: 13rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    z-index: 1;
+  }
+  
+  nav ul #user-class #hide .hidden {
+    position: relative;
+    display: none;
+    height: auto;
+    padding: 10%;
+  }
+  
+  nav ul #user-class #hide .hidden a {
+    position: relative;
+    color: black;
+  }
+  
+  nav ul #user:hover {
+    color: blue;
+    cursor: pointer;
+  }
+  
+  .mini-logo {
+    display: block;
+    position: relative;
+    left: 10%;
+  }
+  
+  .mini-logo p a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: blueviolet;
+  }
+  

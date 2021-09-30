@@ -1,3 +1,20 @@
-<div class="header">
-    <h1>Placement Cell</h1>
-</div>
+<link rel="stylesheet" href="/css/_header.css">
+<header id="layout-header">
+    <nav>
+        <div class="mini-logo">
+            <p>
+                <a href='/'>
+                Placement Cell
+                 </a>
+             </p>
+        </div>
+        <ul>
+            <% if(locals.user) {%>
+                <li class="list"><a href="/user/sign-out"><i class="fas fa-sign-out-alt"></i>&nbsp;SignOut</a></li>
+                <% }else{ %>
+                    <li class="list"><a href="/user/sign-in">SignIn</a></li>
+                    <li class="list"><a href="/user/sign-up">Sign Up</a></li>
+                    <% } %>
+        </ul>
+    </nav>
+</header>
