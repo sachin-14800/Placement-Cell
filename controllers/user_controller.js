@@ -1,5 +1,6 @@
 const Student = require('../models/student');
 const User=require('../models/user');
+const Interviewer=require('../models/interviewer');
 module.exports.signIn=function(req,res)
 {
     if(req.isAuthenticated())
@@ -32,6 +33,10 @@ module.exports.create=async function(req,res)
             user=await User.create(req.body);
             if(req.body.userType=="Student"){
             let student=await Student.create({email:req.body.email});
+            }
+            else if(req.body.userType=="Interviewer")
+            {
+                let interviewer=await Interviewer.create({email:req.body.email});
             }
                 return res.redirect('/user/sign-in');
         }
