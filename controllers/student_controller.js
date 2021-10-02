@@ -1,5 +1,4 @@
 const Student=require('../models/student');
-const Course=require('../models/course');
 module.exports.addStudent=function(req,res)
 {
     if(req.isAuthenticated())
@@ -18,10 +17,16 @@ module.exports.createStudent=async function(req,res)
         if(!student)
         {
         student=await Student.create(req.body);
-        return res.redirect('back');
         }
-        else{
-        return res.redirect('/');
-        }
+        // console.log(student);
+        return res.redirect('/student/profile/'+student.id);
+}
+module.exports.profile=async function(req,res)
+{
+    let student=await Student.findById(req.params.id).populate('courses');
+    return res.render('student',{
+        title:'profile',
+        student:student
+    });
 }
 

@@ -6,4 +6,5 @@ const homeController=require('../controllers/home_contoller');
 router.get('/',passport.checkAuthentication,homeController.home);
 router.use('/user',require('./user'));
 router.use('/student',require('./student'));
+router.use('/course',require('./course'));
 module.exports=router;

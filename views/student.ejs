@@ -1,0 +1,8 @@
+<h1><%= student.email%></h1>
+<% if(student.courses.length==0){%>
+    <h1>Add course to start</h1>
+<%}%>
+<% for(course of student.courses){%>
+    <h1><%=course.name%></h1>
+    <%}%>
+<a href="/course/add-course/<%=student.id%>">Add Course</a>
