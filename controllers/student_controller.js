@@ -1,4 +1,5 @@
 const Student=require('../models/student');
+const User=require('../models/user');
 module.exports.addStudent=function(req,res)
 {
     if(req.isAuthenticated())
@@ -13,17 +14,21 @@ module.exports.addStudent=function(req,res)
 }
 module.exports.createStudent=async function(req,res)
 {
-        let student=await Student.findOne({email:req.body.email});
+        let student=await Student.findOne({email:req.body.email,college:req.body.college});
+        let user=await User.findOne({email:req.body.email});
+        
         if(!student)
         {
-        student=await Student.create(req.body);
+            student=await Student.updateOne({email:req.body.email},{$set:{college:req.body.college,status:req.body.status,batch:req.body.batch}});
+            
         }
-        // console.log(student);
-        return res.redirect('/student/profile/'+student.id);
+        return res.redirect('/student/profile/'+user.id);
+        
 }
 module.exports.profile=async function(req,res)
 {
-    let student=await Student.findById(req.params.id).populate('courses');
+    let user=await User.findById(req.params.id);
+    let student=await Student.findOne({email:user.email}).populate('courses');
     return res.render('student',{
         title:'profile',
         student:student

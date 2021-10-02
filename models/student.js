@@ -5,19 +5,17 @@ const mongoose=require('mongoose');
 const studentSchema=new mongoose.Schema({
     email:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     college:{
         type:String,
-        required:true,
     },
     batch:{
         type:String,
-        required:true,
     },
     status:{
         type:String,
-        required:true
     },
     courses:[
         {
