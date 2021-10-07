@@ -18,11 +18,7 @@ module.exports.create=async function(req,res)
 }
 module.exports.profile=async function(req,res)
 {
-    // console.log(req.params);
-    let user=await User.findById(req.params.id);
-    let interviewer=await Interviewer.findOne({email:user.email});
-    return res.render('interviewer',{
-        title:'profile',
-        interviewer:interviewer
-    });
+    let interviewer=await Interviewer.findById(req.params.id);
+    let user=await User.findOne({email:interviewer.email});
+    return res.redirect('/user/profile/'+user.id);
 }

@@ -20,18 +20,19 @@ module.exports.createStudent=async function(req,res)
         if(!student)
         {
             student=await Student.updateOne({email:req.body.email},{$set:{college:req.body.college,status:req.body.status,batch:req.body.batch}});
-            
         }
-        return res.redirect('/student/profile/'+user.id);
+        if(!user || user.userType!="Student")
+        {
+            console.log("Student needs to be present before adding");
+            res.redirect('/');
+        }
+        return res.redirect('/user/profile/'+user.id);
         
 }
 module.exports.profile=async function(req,res)
 {
-    let user=await User.findById(req.params.id);
-    let student=await Student.findOne({email:user.email}).populate('courses');
-    return res.render('student',{
-        title:'profile',
-        student:student
-    });
+    let student=await Student.findById(req.params.id);
+    let user=await User.findOne({email:student.email});
+    return res.redirect('/user/profile/'+user.id);
 }
 

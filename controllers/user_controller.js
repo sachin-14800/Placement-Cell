@@ -57,3 +57,23 @@ module.exports.destroySession=function(req,res)
     // req.flash('success','Logged Out successfully');
     return res.redirect('/');
 }
+
+module.exports.profile=async function(req,res)
+{
+    let user=await User.findById(req.params.id);
+    if(user.userType=="Student")
+    {
+    let student=await Student.findOne({email:user.email}).populate('courses');
+    return res.render('student',{
+        title:'profile',
+        student:student
+    });
+    }
+    else{
+    let interviewer=await Interviewer.findOne({email:user.email});
+    return res.render('interviewer',{
+        title:'profile',
+        interviewer:interviewer
+    });
+    }
+}

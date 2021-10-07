@@ -4,8 +4,13 @@ module.exports.home=async function(req,res)
 {
     if(req.user.userType=="Employee")
     {
+        let student=await Student.find({})
+        .sort({"batch":-1})
+        .populate('courses');
+        // console.log(student);
     return res.render('home',{
-        title:'Home'
+        title:'Home',
+        students:student
     });
     }
     else if(req.user.userType=="Student")
@@ -13,7 +18,7 @@ module.exports.home=async function(req,res)
         let user=await User.findOne({email:req.user.email});
         if(!user)
         return res.redirect('/');
-       return  res.redirect('/student/profile/'+req.user.id);
+       return  res.redirect('/user/profile/'+req.user.id);
     }
     else if(req.user.userType=="Interviewer")
     {
@@ -21,6 +26,6 @@ module.exports.home=async function(req,res)
         let user=await User.findOne({email:req.user.email});
         if(!user)
         return res.redirect('/');
-        return res.redirect('/interviewer/profile/'+req.user.id);
+        return res.redirect('/user/profile/'+req.user.id);
     }
 }

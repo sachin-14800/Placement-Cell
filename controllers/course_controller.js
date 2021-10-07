@@ -18,5 +18,5 @@ module.exports.createCourse=async function(req,res){
     course.students.push(student.id);
     student.save();
     course.save();
-    return res.redirect('/');
+    return res.redirect('/student/profile/'+student.id);
 }
