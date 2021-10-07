@@ -1,6 +1,7 @@
 const Student = require('../models/student');
 const User=require('../models/user');
 const Interviewer=require('../models/interviewer');
+const Interview = require('../models/interview');
 module.exports.signIn=function(req,res)
 {
     if(req.isAuthenticated())
@@ -61,19 +62,26 @@ module.exports.destroySession=function(req,res)
 module.exports.profile=async function(req,res)
 {
     let user=await User.findById(req.params.id);
+    let interview;
     if(user.userType=="Student")
     {
     let student=await Student.findOne({email:user.email}).populate('courses');
+    interview=await Interview.find({student:student})
+    .populate('interviewer')
+    .populate('student');
     return res.render('student',{
         title:'profile',
-        student:student
+        student:student,
+        interview:interview
     });
     }
     else{
     let interviewer=await Interviewer.findOne({email:user.email});
+    interview=await Interview.find({interviewer:interviewer}).populate('interviewer').populate('student');
     return res.render('interviewer',{
         title:'profile',
-        interviewer:interviewer
+        interviewer:interviewer,
+        interview:interview
     });
     }
 }

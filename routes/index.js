@@ -8,4 +8,5 @@ router.use('/user',require('./user'));
 router.use('/student',require('./student'));
 router.use('/course',require('./course'));
 router.use('/interviewer',require('./interviewer'));
+router.use('/interview',require('./interview'));
 module.exports=router;

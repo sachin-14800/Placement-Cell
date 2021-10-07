@@ -1,3 +1,14 @@
 <h1><%= interviewer.email%></h1>
 <h1><%=interviewer.company%></h1>
+<h1><%=interviewer.other%></h1>
+<% if(locals.user.email== interviewer.email){%>
 <a href="/interviewer/edit">Edit</a>
+<%}%>
+<br>
+<ul>
+<% for(i of interview){%>
+    <li><a href="/student/profile/<%=i.student._id%>"><%= i.student.email%></a>
+        status <%= i.status%>
+    </li>
+    <%}%>
+</ul>

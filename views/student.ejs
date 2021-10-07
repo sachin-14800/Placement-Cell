@@ -9,3 +9,12 @@
     <% if(locals.user.userType=="Employee"){%>
 <a href="/course/add-course/<%=student.id%>">Add Course</a>
 <%}%>
+<ul>
+<% for (i of interview){%>
+    <li><a href="/interviewer/profile/<%=i.interviewer._id%>"><%= i.interviewer.email%></a>
+        Company <%= i.interviewer.company%>
+        <br>
+        status <%= i.status%>
+    </li>
+    <%}%>
+</ul>

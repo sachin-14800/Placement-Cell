@@ -22,7 +22,7 @@ module.exports.home=async function(req,res)
     }
     else if(req.user.userType=="Interviewer")
     {
-        console.log(req.user.id);
+        // console.log(req.user.id);
         let user=await User.findOne({email:req.user.email});
         if(!user)
         return res.redirect('/');

@@ -1,5 +1,7 @@
 <h1>Students</h1>
 <a href="/student/add-student">Add student details</a>
+<br>
+<a href="/interview/add-interview">Schedule interview</a>
 <div></div>
 <% for(student of students){%>
     <a href="/student/profile/<%=student._id%>"><%= student.email%></a>
