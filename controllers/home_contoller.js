@@ -1,3 +1,4 @@
+const Interview = require("../models/interview");
 const Student = require("../models/student");
 const User=require('../models/user');
 module.exports.home=async function(req,res)
@@ -6,11 +7,11 @@ module.exports.home=async function(req,res)
     {
         let student=await Student.find({})
         .sort({"batch":-1})
-        .populate('courses');
-        // console.log(student);
+        let interview=await Interview.find({}).populate('interviewer').populate('student');
     return res.render('home',{
         title:'Home',
-        students:student
+        students:student,
+        interviews:interview
     });
     }
     else if(req.user.userType=="Student")

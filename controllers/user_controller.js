@@ -65,7 +65,7 @@ module.exports.profile=async function(req,res)
     let interview;
     if(user.userType=="Student")
     {
-    let student=await Student.findOne({email:user.email}).populate('courses');
+    let student=await Student.findOne({email:user.email});
     interview=await Interview.find({student:student})
     .populate('interviewer')
     .populate('student');

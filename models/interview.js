@@ -12,6 +12,9 @@ const interviewSchema=new mongoose.Schema({
         ref:'Student',
         required:true
     },
+    company:{
+        type:String,
+    },
     date:{
         type:Date,
         required:true

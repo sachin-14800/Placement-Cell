@@ -1,14 +1,8 @@
 <h1><%= student.email%></h1>
 <h1><%= student.status%></h1>
-<% if(student.courses.length==0){%>
-    <h1>Add a course to get started</h1>
-<%}%>
-<% for(course of student.courses){%>
-    <h1><%=course.name%></h1>
-    <%}%>
-    <% if(locals.user.userType=="Employee"){%>
-<a href="/course/add-course/<%=student.id%>">Add Course</a>
-<%}%>
+<div>DSA <%=student.dsa_score%></div>
+<div>WebD <%=student.web_score%></div>
+<div>React <%=student.react_score%></div>
 <ul>
 <% for (i of interview){%>
     <li><a href="/interviewer/profile/<%=i.interviewer._id%>"><%= i.interviewer.email%></a>

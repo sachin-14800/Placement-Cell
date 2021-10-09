@@ -17,12 +17,18 @@ const studentSchema=new mongoose.Schema({
     status:{
         type:String,
     },
-    courses:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'Course'
-        }
-    ]
+    dsa_score:{
+        type:Number,
+        default:0
+    },
+    web_score:{
+        type:Number,
+        default:0
+    },
+    react_score:{
+        type:Number,
+        default:0
+    }
 },{
     timestamps:true
 });

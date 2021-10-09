@@ -13,7 +13,7 @@ module.exports.create=async function(req,res)
     let student=await Student.findOne({email:req.body.student});
     if(interviewer && student)
     {
-        let interview =await Interview.create({interviewer:interviewer,student:student,date:req.body.date});
+        let interview =await Interview.create({interviewer:interviewer,student:student,date:req.body.date,company:req.body.company});
         console.log('created successfully');
     }
     else

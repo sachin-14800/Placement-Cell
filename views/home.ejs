@@ -1,11 +1,24 @@
 <h1>Students</h1>
-<a href="/student/add-student">Add student details</a>
-<br>
-<a href="/interview/add-interview">Schedule interview</a>
-<div></div>
+<div><a href="/student/add-student">Add student details</a></div>
+
+<div><a href="/interview/add-interview">Schedule interview</a></div>
+
+<div><a href="/download/">Download</a></div>
+<hr>
 <% for(student of students){%>
-    <a href="/student/profile/<%=student._id%>"><%= student.email%></a>
-    <% for(course of student.courses){%>
-        <%= course.name%>
-        <%}%> 
+    <div><a href="/student/profile/<%=student._id%>"><%= student.email%></a>
+        <span>DSA&nbsp;<%=student.dsa_score%></span>
+        <span>WebD&nbsp;<%=student.web_score%></span>
+        <span>React&nbsp; <%=student.react_score%></span>
+    </div>
     <%}%>
+<hr>
+<ul>
+<% for(interview of interviews){%>
+    <li><div><%=interview.interviewer.email%></div>
+    <div><%=interview.student.email%></div>
+    <div><%=interview.company%></div>
+    <div><%=interview.date%></div>
+</li>
+    <%}%>
+</ul>

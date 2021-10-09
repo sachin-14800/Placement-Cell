@@ -19,7 +19,8 @@ module.exports.createStudent=async function(req,res)
         
         if(!student)
         {
-            student=await Student.updateOne({email:req.body.email},{$set:{college:req.body.college,status:req.body.status,batch:req.body.batch}});
+            student=await Student.updateOne({email:req.body.email},{$set:{college:req.body.college,status:req.body.status,
+                batch:req.body.batch,dsa_score:req.body.dsa_score,web_score:req.body.web_score,react_score:req.body.react_score}});
         }
         if(!user || user.userType!="Student")
         {
