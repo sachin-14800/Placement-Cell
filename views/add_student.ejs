@@ -1,14 +1,9 @@
 <form action="/student/create-student" method="post">
-    <input type="text" name="email" placeholder="Enter your email" required>
+    <input type="text" name="email" placeholder="Enter the student email" required>
+    <input type="text" name="name" placeholder="Enter the student name" required>
     <input type="text" name="college" placeholder="College name" required>
     <input type="text" name="batch" placeholder="Batch name" required>
-    <input type="number" name="dsa_score" placeholder="DSA score" required>
-    <input type="number" name="web_score" placeholder="WebD score" required>
-    <input type="number" name="react_score" placeholder="React score" required>
-    Placement status<select name="status" id="status">
-        <option value="Placed">Placed</option>
-        <option value="Not Placed">Not placed</option>
-    </select>
+    <input type="date" name="dob" placeholder="Date of birth" required>
     </div>
     <input type="submit" value="Add Student" >
 </form>

@@ -3,6 +3,28 @@
 <div>DSA <%=student.dsa_score%></div>
 <div>WebD <%=student.web_score%></div>
 <div>React <%=student.react_score%></div>
+<% if(locals.user.userType=="Employee"){%>
+<form action="/student/update-student" method="post">
+    <input type="hidden" name="email" value="<%=student.email%>">
+    <input type="number" name="dsa_score" placeholder="DSA score" required>
+    <input type="number" name="web_score" placeholder="WebD score" required>
+    <input type="number" name="react_score" placeholder="React score" required>
+    Placement status<select name="status" id="status">
+        <% if(student.status=="Placed"){%>
+        <option value="Placed" selected>Placed</option>
+        <%}else{%>
+            <option value="Placed">Placed</option>
+        <%}%>
+        <% if(student.status=="Not Placed"){%>
+        <option value="Not Placed" selected>Not placed</option>
+        <%}else{%>
+            <option value="Not Placed">Not placed</option>
+            <%}%>
+    </select>
+    </div>
+    <input type="submit" value="Update" >
+</form>
+<%}%>
 <ul>
 <% for (i of interview){%>
     <li><a href="/interviewer/profile/<%=i.interviewer._id%>"><%= i.interviewer.email%></a>

@@ -8,6 +8,9 @@ const studentSchema=new mongoose.Schema({
         required:true,
         unique:true
     },
+    name:{
+        type:String
+    },
     college:{
         type:String,
     },
