@@ -1,7 +1,6 @@
 const Student = require("../models/student");
 const Interview = require("../models/interview");
 const createCsvWriter=require('csv-writer').createObjectCsvWriter;
-const Course = require("../models/course");
 
 module.exports.download=async function(req,res)
 {
@@ -39,10 +38,10 @@ module.exports.download=async function(req,res)
         }
         records.push(obj);
     });
-    console.log(records);
+    // console.log(records);
     csvWriter.writeRecords(records)
     .then(()=>{
         console.log("Completed");
         res.download('file.csv');
-    })
+    });
 }
