@@ -25,6 +25,21 @@
     <input type="submit" value="Update" >
 </form>
 <%}%>
+<h1>Opportunity</h1>
+<ul>
+<%for(o of opportunity){%>
+    <div><%=o.company%></div>
+    <div><%=o.criteria%></div>
+    <div><%=o.position%></div>
+    <div><%=o.designation%></div>
+    <div><%=o.place%></div>
+    <div><%=o.ctc%></div>
+    <div><%=o.registerLink%></div>
+    <div><%=o.otherLinks%></div>
+    <div class="date"><%=o.deadline%></div>
+    <%}%>
+</ul>
+<h1>Interviews</h1>
 <ul>
 <% for (i of interview){%>
     <li><a href="/interviewer/profile/<%=i.interviewer._id%>"><%= i.interviewer.name%></a>
@@ -34,3 +49,4 @@
     </li>
     <%}%>
 </ul>
+<script src="/js/home.js"></script>

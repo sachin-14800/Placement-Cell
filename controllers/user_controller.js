@@ -2,6 +2,7 @@ const Student = require('../models/student');
 const User=require('../models/user');
 const Interviewer=require('../models/interviewer');
 const Interview = require('../models/interview');
+const Opportunity = require('../models/opportunity');
 module.exports.signIn=function(req,res)
 {
     if(req.isAuthenticated())
@@ -69,14 +70,18 @@ module.exports.profile=async function(req,res)
     if(user.userType=="Student")
     {
     let student=await Student.findOne({email:user.email});
+    let date=new Date();
+    console.log(date);
     interview=await Interview.find({student:student})
     .sort({date:-1})
     .populate('interviewer')
     .populate('student');
+    let opportunity=await Opportunity.find({deadline:{$gt:date}});
     return res.render('student',{
         title:'profile',
         student:student,
-        interview:interview
+        interview:interview,
+        opportunity:opportunity
     });
     }
     else{

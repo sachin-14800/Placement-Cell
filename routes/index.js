@@ -9,4 +9,5 @@ router.use('/student',require('./student'));
 router.use('/interviewer',require('./interviewer'));
 router.use('/interview',require('./interview'));
 router.use('/download',require('./download'));
+router.use('/opportunity',require('./opportunity'));
 module.exports=router;
