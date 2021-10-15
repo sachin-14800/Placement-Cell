@@ -31,13 +31,16 @@ module.exports.create=async function(req,res)
     let user=await User.findOne({email:req.body.email});
         if(!user)
         {
-            user=await User.create(req.body);
+            
             if(req.body.userType=="Student"){
-            let student=await Student.create({email:req.body.email});
+            // let student=await Student.create({email:req.body.email});
+            console.log('ask the department to add you');
+            return res.redirect('/');
             }
             else if(req.body.userType=="Interviewer")
             {
-                let interviewer=await Interviewer.create({email:req.body.email});
+                user=await User.create(req.body);
+                let interviewer=await Interviewer.create({email:req.body.email,name:user.name});
             }
                 return res.redirect('/user/sign-in');
         }
@@ -67,6 +70,7 @@ module.exports.profile=async function(req,res)
     {
     let student=await Student.findOne({email:user.email});
     interview=await Interview.find({student:student})
+    .sort({date:-1})
     .populate('interviewer')
     .populate('student');
     return res.render('student',{
@@ -77,7 +81,7 @@ module.exports.profile=async function(req,res)
     }
     else{
     let interviewer=await Interviewer.findOne({email:user.email});
-    interview=await Interview.find({interviewer:interviewer}).populate('interviewer').populate('student');
+    interview=await Interview.find({interviewer:interviewer}).sort({date:-1}).populate('interviewer').populate('student');
     return res.render('interviewer',{
         title:'profile',
         interviewer:interviewer,

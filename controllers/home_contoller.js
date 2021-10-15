@@ -7,7 +7,7 @@ module.exports.home=async function(req,res)
     {
         let student=await Student.find({})
         .sort({"batch":-1})
-        let interview=await Interview.find({}).populate('interviewer').populate('student');
+        let interview=await Interview.find({}).sort({'date':-1}).populate('interviewer').populate('student');
     return res.render('home',{
         title:'Home',
         students:student,

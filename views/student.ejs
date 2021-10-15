@@ -1,4 +1,4 @@
-<h1><%= student.email%></h1>
+<h1><%= student.name%></h1>
 <h1><%= student.status%></h1>
 <div>DSA <%=student.dsa_score%></div>
 <div>WebD <%=student.web_score%></div>
@@ -27,7 +27,7 @@
 <%}%>
 <ul>
 <% for (i of interview){%>
-    <li><a href="/interviewer/profile/<%=i.interviewer._id%>"><%= i.interviewer.email%></a>
+    <li><a href="/interviewer/profile/<%=i.interviewer._id%>"><%= i.interviewer.name%></a>
         Company <%= i.interviewer.company%>
         <br>
         status <%= i.status%>

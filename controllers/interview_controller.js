@@ -22,3 +22,10 @@ module.exports.create=async function(req,res)
     }
     res.redirect('/interview/add-interview');
 }
+module.exports.update=async function(req,res)
+{
+    let interviewer=await Interviewer.findOne({email:req.body.interviewer});
+    let student=await Student.findOne({email:req.body.student});
+    let interview=await Interview.updateOne({interviewer:interviewer,student:student,date:req.body.date},{$set:{status:req.body.status}});
+    return res.redirect('back');
+}

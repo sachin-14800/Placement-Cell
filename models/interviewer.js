@@ -6,6 +6,9 @@ const interviewerSchema=new mongoose.Schema({
         type:String,
         unique:true
     },
+    name:{
+        type:String
+    },
     company:{
         type:String,
     },

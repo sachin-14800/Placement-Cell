@@ -15,10 +15,13 @@
 <hr>
 <ul>
 <% for(interview of interviews){%>
-    <li><div><%=interview.interviewer.email%></div>
-    <div><%=interview.student.email%></div>
-    <div><%=interview.company%></div>
-    <div><%=interview.date%></div>
+    <li>
+    <div>Student:<%=interview.student.name%></div>
+    <div>interviewer:<%=interview.interviewer.name%></div>
+    <div>Company:<%=interview.company%></div>
+    <div class="date">Date:<%=interview.date%></div>
+    <div><%=interview.status%></div>
 </li>
     <%}%>
 </ul>
+<script src="/js/home.js"></script>
