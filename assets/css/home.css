@@ -1,0 +1,58 @@
+.bar{
+    display: flex;
+    justify-content: space-evenly;
+}
+.bar div{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: cornsilk;
+    border-radius: 1rem;
+    padding:1%;
+    border:1px solid blueviolet;
+}
+.bar div a{
+    color:blueviolet;
+    text-decoration: none;
+    font-weight: bold;
+}
+.tabs{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color:grey;
+}
+.student{
+    color:black;
+    border-bottom: 2px solid blueviolet;
+}
+.tabs div{
+    cursor: pointer;
+}
+table{
+    width:90%;
+    margin-left: 5%;
+    background-color: cornsilk;
+    border-radius: 1rem;
+    padding-top: 1.5%;
+    padding-bottom: 3%;
+}
+th{
+    font-size: 1.2rem;
+}
+td{
+    text-align: center;
+    height: 40px;
+    vertical-align: center;
+}
+td a{
+    text-decoration: none;
+    color:blueviolet;
+}
+.color{
+    border-radius: 2rem;
+    padding: 2%;
+    width: fit-content;
+    color:white;
+    font-size: 1.1rem;
+}

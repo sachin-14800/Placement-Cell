@@ -1,30 +1,75 @@
-
+<link rel="stylesheet" href="/css/home.css">
+<div class="bar">
 <div><a href="/student/add-student">Add student details</a></div>
 
 <div><a href="/interview/add-interview">Schedule interview</a></div>
-
-<div><a href="/download/">Download</a></div>
-
 <div><a href="/opportunity/add">Add an opportunity</a></div>
+<div><a href="/download/">Interview details</a></div>
+
+
+</div>
 <hr>
-<h1>Students</h1>
+<div class="tabs">
+    <div class="student">Students</div>
+<div class="opportunity">Opportunity</div>
+<div class="interview">Interviews</div>
+</div>
+<hr>
+<div id="students">
+<table>
+    <tr>
+        <th>Name</th>
+        <th>DSA</th>
+        <th>WebD</th>
+        <th>React</th>
+    </tr>
 <% for(student of students){%>
-    <div><a href="/student/profile/<%=student._id%>"><%= student.email%></a>
-        <span>DSA&nbsp;<%=student.dsa_score%></span>
-        <span>WebD&nbsp;<%=student.web_score%></span>
-        <span>React&nbsp; <%=student.react_score%></span>
-    </div>
+    <tr>
+        <td><a href="/student/profile/<%=student._id%>"><%= student.name%></a></td>
+        <td><%=student.dsa_score%>%</td>
+        <td><%=student.web_score%>%</td>
+        <td><%=student.react_score%>%</td>
+    </tr>
     <%}%>
-<hr>
-<ul>
+</table>
+</div>
+<div id="interviews">
+<table>
+    <tr>
+        <th>Student</th>
+        <th>Interviewer</th>
+        <th>Company</th>
+        <th>Date</th>
+        <th>Status</th>
+    </tr>
 <% for(interview of interviews){%>
-    <li>
-    <div>Student:<%=interview.student.name%></div>
-    <div>interviewer:<%=interview.interviewer.name%></div>
-    <div>Company:<%=interview.company%></div>
-    <div class="date">Date:<%=interview.date%></div>
-    <div><%=interview.status%></div>
-</li>
+    <tr>
+    <td><a href="/student/profile/<%=interview.student._id%>"><%=interview.student.name%></a></td>
+    <td><a href="/interviewer/profile/<%=interview.interviewer._id%>"><%=interview.interviewer.name%></a></td>
+    <td><%=interview.company%></td>
+    <td class="date"><%=interview.date%></td>
+    <td><span class="color"><%=interview.status%></span></td>
+    </tr>
     <%}%>
-</ul>
+</table>
+</div>
+<div id="opportunity">
+<table>
+    <tr>
+        <th>Company</th>
+        <th>Position</th>
+        <th>CTC</th>
+        <th>Deadline</th>
+    </tr>
+    <% for(o of opportunity){%>
+        <tr>
+            <td><%=o.company%></td>
+            <td><%=o.designation%></td>
+            <td><%=o.ctc%></td>
+            <td class="date"><%=o.deadline%></td>
+        </tr>
+        <%}%>
+</table>
+</div>
 <script src="/js/home.js"></script>
+<script src="/js/home_helper.js"></script>
