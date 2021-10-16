@@ -1,15 +1,22 @@
-<h1><%= student.name%></h1>
-<h1><%= student.status%></h1>
-<div>DSA <%=student.dsa_score%></div>
-<div>WebD <%=student.web_score%></div>
-<div>React <%=student.react_score%></div>
+<link rel="stylesheet" href="/css/student.css">
+<div class="student-info">
+    <div><%= student.name%></div>
+<div>Placement Status:&nbsp;<%= student.status%></div>
+</div>
+<div class="courses">
+    <div id="container">DSA<div id="container1"><div id="dsa"><%=student.dsa_score%></div></div></div>    
+    <div id="container">WebD<div id="container1"><div id="web"><%=student.web_score%></div> </div></div>
+    <div id="container">React<div id="container1"><div id="react"><%=student.react_score%></div></div></div>
+</div>
+
 <% if(locals.user.userType=="Employee"){%>
 <form action="/student/update-student" method="post">
     <input type="hidden" name="email" value="<%=student.email%>">
-    <input type="number" name="dsa_score" placeholder="DSA score" required>
-    <input type="number" name="web_score" placeholder="WebD score" required>
-    <input type="number" name="react_score" placeholder="React score" required>
-    Placement status<select name="status" id="status">
+    <div>DSA Score:&nbsp;<input type="number" name="dsa_score" placeholder="DSA score" value="<%=student.dsa_score%>" required></div>
+    <div>WebD Score:&nbsp;<input type="number" name="web_score" placeholder="WebD score" value="<%=student.web_score%>" required></div>
+    <div>React Score:&nbsp;<input type="number" name="react_score" placeholder="React score" value="<%=student.react_score%>" required></div>
+    <div class="status">
+    Placement status&nbsp;<select name="status" id="status">
         <% if(student.status=="Placed"){%>
         <option value="Placed" selected>Placed</option>
         <%}else{%>
@@ -22,31 +29,56 @@
             <%}%>
     </select>
     </div>
-    <input type="submit" value="Update" >
+    <Button type="submit">Update</Button>
 </form>
 <%}%>
-<h1>Opportunity</h1>
-<ul>
+<hr>
+<div id="bar">
+    <div id="opp-bar">Opportunities</div>
+    <div id="interview-bar">Interviews</div>
+</div>
+<hr>
+<div id="opportunity">
+<table>
+    <tr>
+        <th>Company</th>
+        <th>Position</th>
+        <th>CTC</th>
+        <th>Deadline</th>
+        <th></th>
+    </tr>
 <%for(o of opportunity){%>
-    <div><%=o.company%></div>
-    <div><%=o.criteria%></div>
-    <div><%=o.position%></div>
-    <div><%=o.designation%></div>
-    <div><%=o.place%></div>
-    <div><%=o.ctc%></div>
-    <div><%=o.registerLink%></div>
-    <div><%=o.otherLinks%></div>
-    <div class="date"><%=o.deadline%></div>
+    <tr>
+    <td><%=o.company%></td>
+    <td><%=o.designation%></td>
+    <td><%=o.ctc%></td>
+    
+    <td class="date"><%=o.deadline%></td>
+    <% if(locals.user.userType=="Student"){%>
+    <td class="anchor"><a href="/opportunity/<%=o._id%>">Apply</a></td>
     <%}%>
-</ul>
-<h1>Interviews</h1>
-<ul>
+    </tr>
+    <%}%>
+
+</table>
+</div>
+<div id="interviews">
+
+<table>
+    <tr>
+        <th>Interviewer</th>
+        <th>Company</th>
+        <th>Date</th>
+        <th>Interview Status</th>
+    </tr>
 <% for (i of interview){%>
-    <li><a href="/interviewer/profile/<%=i.interviewer._id%>"><%= i.interviewer.name%></a>
-        Company <%= i.interviewer.company%>
-        <br>
-        status <%= i.status%>
-    </li>
+    <tr>
+        <td class="anchor"><a href="/interviewer/profile/<%=i.interviewer._id%>"><%= i.interviewer.name%></a></td>
+        <td><%= i.interviewer.company%></td>
+        <td class="date"><%=i.date%></td>
+        <td ><span class="color"><%= i.status%></span></td>
+    </tr>
     <%}%>
-</ul>
-<script src="/js/home.js"></script>
+</table>
+</div>
+<script src="/js/student.js"></script>

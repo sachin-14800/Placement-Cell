@@ -21,7 +21,7 @@ module.exports.createStudent=async function(req,res)
         {
             student=await Student.create({email:req.body.email,college:req.body.college,name:req.body.name,batch:req.body.batch});
             let date=req.body.dob.split("-").reverse().join("-");
-            console.log(date);
+            // console.log(date);
             user=await User.create({email:req.body.email,name:req.body.name,userType:"Student",password:date});
         }
         return res.redirect('/user/profile/'+user.id);
