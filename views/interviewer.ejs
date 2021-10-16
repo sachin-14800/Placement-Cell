@@ -25,7 +25,7 @@
         <td><a href="/student/profile/<%=i.student._id%>"><%= i.student.name%></a></td>
         <td class="date"><%=i.date%></td>
         <td><span class="color"><%= i.status%></span></td>
-        <td><% if(i.status=="On Hold"){%>
+        <td><% if(i.status=="On Hold" && locals.user.email==i.interviewer.email){%>
             <form action="/interview/update" method="post">
                 <input type="hidden" name="student" value="<%=i.student.email%>">
                 <input type="hidden" name="interviewer" value="<%=i.interviewer.email%>">

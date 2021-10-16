@@ -27,6 +27,7 @@ module.exports.create=async function(req,res)
 {
     if(req.body.password!=req.body.confirm_password)
     {
+        req.flash('error','Password Mismatch');
         return res.redirect('back');
     }
     let user=await User.findOne({email:req.body.email});
@@ -34,33 +35,34 @@ module.exports.create=async function(req,res)
         {
             
             if(req.body.userType=="Student"){
-            // let student=await Student.create({email:req.body.email});
-            console.log('ask the department to add you');
-            return res.redirect('/');
+            req.flash('error','Ask the department to add you');
+            return res.redirect('/user/sign-up');
             }
             else if(req.body.userType=="Interviewer")
             {
                 user=await User.create(req.body);
                 let interviewer=await Interviewer.create({email:req.body.email,name:user.name});
+                req.flash('success','Successfully Created');
             }
                 return res.redirect('/user/sign-in');
         }
         else
         {
+            req.flash('error','Already a user');
             return res.redirect('/user/sign-in');
         }
 }
 module.exports.createSession=function(req,res)
 {
-    // req.flash('success','Logged In successfully');
+    req.flash('success','Logged In successfully');
     return res.redirect('/');
 }
 
 module.exports.destroySession=function(req,res)
 {
     req.logout();
-    // req.flash('success','Logged Out successfully');
-    return res.redirect('/');
+    req.flash('success','Logged Out successfully');
+    return res.redirect('/user/sign-in');
 }
 
 module.exports.profile=async function(req,res)

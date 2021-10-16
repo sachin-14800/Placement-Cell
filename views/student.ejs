@@ -54,7 +54,7 @@
     <td><%=o.ctc%></td>
     
     <td class="date"><%=o.deadline%></td>
-    <% if(locals.user.userType=="Student"){%>
+    <% if(locals.user.userType=="Student" && locals.user.email==student.email){%>
     <td class="anchor"><a href="/opportunity/<%=o._id%>">Apply</a></td>
     <%}%>
     </tr>
