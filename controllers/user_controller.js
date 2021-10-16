@@ -73,7 +73,6 @@ module.exports.profile=async function(req,res)
     {
     let student=await Student.findOne({email:user.email});
     let date=new Date();
-    console.log(date);
     interview=await Interview.find({student:student})
     .sort({date:-1})
     .populate('interviewer')

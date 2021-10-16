@@ -8,8 +8,7 @@ module.exports.home=async function(req,res)
     {
         if(req.user.userType=="Employee")
         {
-            let student=await Student.find({})
-            .sort({"batch":-1})
+            let student=await Student.find({}).sort({"batch":-1});
             let interview=await Interview.find({}).sort({'date':-1}).populate('interviewer').populate('student');
             let opportunity=await Opportunity.find({}).sort({'deadline':-1});
         return res.render('home',{
@@ -28,7 +27,6 @@ module.exports.home=async function(req,res)
         }
         else if(req.user.userType=="Interviewer")
         {
-            // console.log(req.user.id);
             let user=await User.findOne({email:req.user.email});
             if(!user)
             return res.redirect('/');
