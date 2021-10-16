@@ -1,5 +1,10 @@
-<form action="/interviewer/create" method="post">
-    <input type="text" name="company" placeholder="Company name" value="<%=interviewer.company%>" required>
-    <input type="textarea" name="other" value="<%= interviewer.other%>" placeholder="Designation">
-    <input type="submit" value="Update">
+<link rel="stylesheet" href="/css/interviewer.css">
+<form action="/interviewer/create" method="post" id="update">
+    <div class="detail">
+        <button class="edit" type="submit"><i class="fas fa-check"></i></button>
+        <button class="edit"><a href="/">X</a></button>
+    <div>Company:&nbsp;<input type="text" name="company" placeholder="Company name"  value="<%=interviewer.company%>" required></div>
+    <div>Position:&nbsp;<input type="textarea" name="other" value="<%= interviewer.other%>"  placeholder="Designation"></div>
+    </div>
+    
 </form>

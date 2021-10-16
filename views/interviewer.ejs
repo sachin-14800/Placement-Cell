@@ -1,15 +1,31 @@
-<h1><%= interviewer.name%></h1>
-<h1><%=interviewer.company%></h1>
-<h1><%=interviewer.other%></h1>
+<link rel="stylesheet" href="/css/interviewer.css">
+<div class="details">
+<div class="name"><%= interviewer.name%></div>
 <% if(locals.user.email== interviewer.email){%>
-<a href="/interviewer/edit">Edit</a>
-<%}%>
-<br>
-<ul>
+    <a href="/interviewer/edit">Edit</a>
+    <%}%>
+</div>
+<div class="details">
+    <div>Company:&nbsp;<%=interviewer.company%></div>
+    <div>Position:&nbsp;<%=interviewer.other%></div>
+</div>
+<br><br>
+<hr>
+<div class="bar">Interviews Scheduled</div>
+<hr>
+<table>
+    <tr>
+        <th>Student Name</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
 <% for(i of interview){%>
-    <li><a href="/student/profile/<%=i.student._id%>"><%= i.student.name%></a>
-        status <%= i.status%>
-        <% if(i.status=="On Hold"){%>
+    <tr>
+        <td><a href="/student/profile/<%=i.student._id%>"><%= i.student.name%></a></td>
+        <td class="date"><%=i.date%></td>
+        <td><span class="color"><%= i.status%></span></td>
+        <td><% if(i.status=="On Hold"){%>
             <form action="/interview/update" method="post">
                 <input type="hidden" name="student" value="<%=i.student.email%>">
                 <input type="hidden" name="interviewer" value="<%=i.interviewer.email%>">
@@ -20,9 +36,13 @@
                     <option value="Fail">Fail</option>
                     <option value="Didn't Attempt">Didn't Attempt</option>
                 </select>
-                <input type="submit" class="submit" value="Done">
+                <button class="submit" type="submit">Done</button>
             </form>
             <%}%>
-    </li>
+        </td>
+        </tr>
     <%}%>
 </ul>
+
+<script src="/js/home.js"></script>
+<script src="/js/interviewer.js"></script>

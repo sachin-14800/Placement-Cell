@@ -1,0 +1,105 @@
+.name{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.details{
+    display: flex;
+    margin-top: 2%;
+    justify-content: space-around;
+    font-size: 2rem;
+}
+.details a{
+    text-decoration: none;
+    color: blueviolet;
+    border-radius: 1rem;
+    background-color: cornsilk;
+    padding: 0.5%;
+}
+.bar{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: blueviolet;
+}
+table{
+    width:90%;
+    margin-left: 5%;
+    background-color: cornsilk;
+    border-radius: 1rem;
+    padding-top: 1.5%;
+    padding-bottom: 3%;
+}
+th{
+    font-size: 1.2rem;
+}
+td{
+    text-align: center;
+    height: 40px;
+    vertical-align: center;
+}
+td a{
+    text-decoration: none;
+    color: blueviolet;
+}
+select{
+    border:1px solid blueviolet;
+    font-size: 1rem;
+    background-color:lightcyan;
+    border-radius: 1rem;
+    padding: 2px;
+    color: brown;
+}
+.submit
+{
+    border-radius:2rem;
+    background-color: blueviolet;
+    color:white;
+    padding: 0.5%;
+    font-size: 1rem;
+}
+.color{
+    border-radius: 2rem;
+    padding: 2%;
+    width: fit-content;
+    color:white;
+    font-size: 1.1rem;
+}
+/* details of interviewer */
+
+#update{
+    position: relative;
+    left:30%;
+    margin-top: 10%;
+    width:40%;
+    background-color: cornsilk;
+    height:250px;
+    border-radius: 1rem;
+}
+.detail
+{
+    text-align: center;
+    padding-top: 5%;
+    font-size: 1.5rem;
+}
+.detail input{
+margin-bottom: 5%; 
+margin-left: 30%;  
+border: none; 
+background-color: transparent;
+border-bottom: 2px solid blueviolet;
+font-size: 1.3rem;
+}
+.edit{
+    background-color: transparent;
+    border:none;
+    font-size: 2rem;
+    position: relative;
+    left:30%;
+    margin-bottom: 5%;
+}
+.edit a{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
