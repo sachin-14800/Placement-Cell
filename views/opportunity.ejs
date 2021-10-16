@@ -1,12 +1,23 @@
 <link rel="stylesheet" href="/css/student.css">
 <div id="oppor">
+    <div class="post-ctc">
     <div class="company-name"><%=opportunity.company%></div>
-    <div>Eligibility Criteria:&nbsp;<%=opportunity.criteria%></div>
-    <div><%=opportunity.designation%></div>
-    <div><%=opportunity.place%></div>
-    <div><%=opportunity.ctc%></div>
-    <div><%=opportunity.registrationLink%></div>
-    <div><%=opportunity.otherLinks%></div>
-    <div class="date"><%=opportunity.deadline%></div>
-
+    <div class="date">Deadline:&nbsp;<%=opportunity.deadline%></div>
 </div>
+    <div class="post-ctc">
+    <div>Position:&nbsp;<%=opportunity.designation%></div>
+    <div>CTC: &nbsp;<%=opportunity.ctc%></div>
+    <div>Place of posting:&nbsp;<%=opportunity.place%></div>
+    </div>
+    <div class="criteria"><span>Eligibility Criteria:</span>
+        <div>Course:&nbsp;<%=opportunity.course%></div>
+        <div>Graduation Year:&nbsp;<%=opportunity.year%></div>
+        <div>CGPA Criteria:&nbsp;<%=opportunity.cgpa%></div>
+    </div>
+    <div class="criteria">
+    <div><span>Registration Link:</span> <a href="<%=opportunity.registrationLink%>"><%=opportunity.registerLink%></a></div>
+    <div><span>Job description Link:</span> <a href="<%=opportunity.otherLinks%>"><%=opportunity.otherLinks%></a></div>
+    
+</div>
+</div>
+<script src="/js/opportunity.js"></script>

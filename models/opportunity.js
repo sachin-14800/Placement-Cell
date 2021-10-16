@@ -4,7 +4,13 @@ const opportunitySchema=mongoose.Schema({
         type:String,
         required:true
     },
-    criteria:{
+    cgpa:{
+        type:String,
+    },
+    year:{
+        type:Number,
+    },
+    course:{
         type:String,
     },
     designation:{
