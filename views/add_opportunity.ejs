@@ -1,13 +1,14 @@
+<link rel="stylesheet" href="/css/form_page.css">
 <form action="/opportunity/create" method="post">
-    Company: <input type="text" name="company" placeholder="Enter the company name" required>
-    Eligibility-criteria: Course: <input type="text" name="course" placeholder="Who can apply" required>
-    Graduation year: <input type="number" name="year" placeholder="Graduation year" required>
-    CGPA: <input type="text" name="cgpa" placeholder="Eligible CGPA" required>
-    Position: <input type="text" name="designation" placeholder="Position to apply for" required>
-    Place of posting: <input type="text" name="place">
-    CTC: <input type="text" name="ctc" placeholder="CTC offered">
-    Registration Link: <input type="text" name="registerLink" placeholder="Link to apply" required>
-    Deadline: <input type="date" name="deadline" required>
-    Job description: <input type="text" name="otherLinks" >
-    <input type="submit" value="Add">
+    <input type="text" name="company" placeholder="Enter the company name" required>
+    <input type="text" name="course" placeholder="Which course can apply" required>
+    <input type="number" name="year" placeholder="Graduation year" required>
+    <input type="text" name="cgpa" placeholder="Eligible CGPA" required>
+    <input type="text" name="designation" placeholder="Position to apply for" required>
+    <input type="text" name="place" placeholder="Place of posting">
+    <input type="text" name="ctc" placeholder="CTC offered" required>
+    <input type="text" name="registerLink" placeholder="Registration Link" required>
+    <input type="text" name="otherLinks" placeholder="Job description link" >
+    <span class="text">Deadline:</span><input type="date" name="deadline" required>
+    <button type="submit">Create</button>
 </form>

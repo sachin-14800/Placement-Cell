@@ -1,7 +1,9 @@
+<link rel="stylesheet" href="/css/form_page.css">
 <form action="/interview/create-interview" method="post">
     <input type="email" name="interviewer" placeholder="Enter interviewer email" required>
     <input type="email" name="student" placeholder="Enter student email" required>
-    <input type="date" name="date" placeholder="Interview date" required>
+    
     <input type="text" name="company" placeholder="Company name" required>
-    <input type="submit" value="Add Interview" >
+    <span class="text">Interview date:</span><input type="date" name="date"  required>
+    <button type="submit"> Schedule</button>
 </form>

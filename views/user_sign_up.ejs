@@ -1,14 +1,14 @@
-<!-- <link rel="stylesheet" href="/css/user-sign-up.css"> -->
+<link rel="stylesheet" href="/css/user-sign-up.css">
 <div class="sign-up">
-    <!-- <div class="home">
+    <div class="home">
         <a href="/">X</a>
-    </div> -->
+    </div>
     <form action="/user/create" method="POST" class="sign-up-form">
         <input type="text" name="name" placeholder="Username" required>
         <input type="text" name="email" placeholder="Enter the email" required>
         <input type="password" name="password" placeholder="Password" required>
         <input type="password" name="confirm_password" placeholder="Confirm Password">
-        Occupation<select name="userType" id="userType">
+        <span class="text">Occupation:&nbsp;</span><select name="userType" id="userType">
             <option value="Employee">Employee</option>
             <option value="Interviewer">Interviewer</option>
             <option value="Student">Student</option>
