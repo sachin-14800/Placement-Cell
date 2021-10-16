@@ -8,7 +8,7 @@
     background-color: cornsilk;
     border-radius: 1rem;
     padding:1%;
-    border:1px solid blueviolet;
+    border:2px solid blueviolet;
 }
 .bar div a{
     color:blueviolet;
@@ -32,7 +32,7 @@
 table{
     width:90%;
     margin-left: 5%;
-    background-color: cornsilk;
+    background-color: rgb(231, 227, 227);
     border-radius: 1rem;
     padding-top: 1.5%;
     padding-bottom: 3%;
