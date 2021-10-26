@@ -65,11 +65,11 @@ td a{
 }
 #container1{
     position: relative;
-    margin-left: 10%;
+    margin-left: 30%;
     width:8rem;
     background-color:white;
     border-radius: 2rem;
-    color: white;
+    color: cornsilk;
     text-align: center;
     box-shadow:  inset 2px 1px 1px 2px grey;
 }

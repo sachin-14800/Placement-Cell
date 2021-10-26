@@ -1,3 +1,4 @@
+
 let statuses=document.getElementsByClassName('color');
 for(let i=0;i<statuses.length;i++)
 {
@@ -11,6 +12,15 @@ for(let i=0;i<statuses.length;i++)
     else if(statuses[i].innerHTML=="Fail")
     statuses[i].style.backgroundColor="red";
 }
+$('.dsa').each(function(){
+    $(this).css('width',$(this).html()+"%");
+});
+$('.web').each(function(){
+    $(this).css('width',$(this).html()+"%");
+});
+$('.react').each(function(){
+    $(this).css('width',$(this).html()+"%");
+});
 let students=$('#students').html();
 let opportunity=$('#opportunity').html();
 let interviews=$('#interviews').html();
@@ -39,13 +49,4 @@ $('.opportunity').click(function(){
     $('.interview').css({"color":"grey","border-bottom":"none"});
     $('#opportunity').html(opportunity);
     $('.opportunity').css({"color":"black","border-bottom":"2px solid blueviolet"});
-});
-$('.dsa').each(function(){
-    $(this).css('width',$(this).html()+"%");
-});
-$('.web').each(function(){
-    $(this).css('width',$(this).html()+"%");
-});
-$('.react').each(function(){
-    $(this).css('width',$(this).html()+"%");
 });
