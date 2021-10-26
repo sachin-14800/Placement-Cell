@@ -26,9 +26,9 @@
 <% for(student of students){%>
     <tr>
         <td><a href="/student/profile/<%=student._id%>"><%= student.name%></a></td>
-        <td><%=student.dsa_score%>%</td>
-        <td><%=student.web_score%>%</td>
-        <td><%=student.react_score%>%</td>
+        <td><div id="container1"><div class="dsa"><%=student.dsa_score%></div></div></td>
+        <td><div id="container1"><div class="web"><%=student.web_score%></div></div></td>
+        <td><div id="container1"><div class="react"><%=student.react_score%></div></div></td>
     </tr>
     <%}%>
 </table>

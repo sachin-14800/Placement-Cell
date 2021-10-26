@@ -21,18 +21,23 @@
 table{
     width:90%;
     margin-left: 5%;
-    background-color: cornsilk;
+    background-color: rgb(231, 227, 227);
     border-radius: 1rem;
     padding-top: 1.5%;
     padding-bottom: 3%;
+    font-size: 1.2rem;
 }
 th{
     font-size: 1.2rem;
+    border-bottom: 1px solid grey;
+    padding: 1.5%;
 }
 td{
     text-align: center;
     height: 40px;
     vertical-align: center;
+    border-bottom: 1px solid grey;
+    padding: 1.5%;
 }
 .name{
     font-size: 2rem;
@@ -83,9 +88,11 @@ td{
     color:blueviolet;
 }
 .color{
+    display: block;
     border-radius: 2rem;
     padding: 2%;
-    width: fit-content;
+    width: 8rem;
+    margin-left:30%;
     color:white;
     font-size: 1.1rem;
 }
