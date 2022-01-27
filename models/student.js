@@ -19,6 +19,7 @@ const studentSchema=new mongoose.Schema({
     },
     status:{
         type:String,
+        default:'Not Placed'
     },
     dsa_score:{
         type:Number,
